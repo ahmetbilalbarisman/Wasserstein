@@ -28,10 +28,10 @@ column_mapping = ColumnMapping(
 # Create a custom report with the Wasserstein test for feature1
 report = Report(metrics=[
     DataDriftPreset(
-        num_stattest='wasserstein',  
+        num_stattest='jensenshannon',  # wasserstein ayarlanabilir
         num_stattest_threshold=0.2,  
     ),
-    ColumnDriftMetric(column_name='feature1', stattest='wasserstein', stattest_threshold=0.2),
+    ColumnDriftMetric(column_name='feature1', stattest='jensenshannon', stattest_threshold=0.2), # wasserstein ayarlanabilir
     DatasetDriftMetric(drift_share=0.7)  # Set condition for dataset drift (70% of columns should show drift)
 ])
 
